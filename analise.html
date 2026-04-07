@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=576, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Beer Sensory App</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="estilo.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.min.js"></script>
+</head>
+
+<body data-page="analise">
+    <div class="container p-3 bg-white">
+        <header class="text-center">
+            <h1 class="fw-bold">Análise Sensorial</h1>
+            <p>Registro de degustação de cerveja</p>
+        </header>
+
+        <form id="form-analise">
+
+            <!-- identificação da cerveja -->
+            <section class="card border-0" id="id-cerveja">
+                <h2 class="text-center mb-3">Dados da Cerveja</h2>
+
+                <label for="data-analise">Data da análise</label>
+                <input type="date" id="data-analise" name="dataAnalise" class="form-control border-secondary mb-3">
+
+                <label for="data-validade">Validade</label>
+                <input type="date" id="data-validade" name="dataValidade" class="form-control border-secondary mb-3">
+
+                <label for="nome-cerveja">Nome da cerveja</label>
+                <input type="text" id="nome-cerveja" name="nomeCerveja" placeholder="Ex: IPA da Serra"
+                    class="form-control border-secondary mb-3">
+
+                <label for="estilo">Estilo</label>
+                <input type="text" id="estilo" name="estilo" placeholder="Ex: American IPA"
+                    class="form-control border-secondary mb-3">
+
+                <label for="abv">Teor alcoólico (% ABV)</label>
+                <input type="text" id="abv" name="abv" placeholder="Ex: 6.5" class="form-control border-secondary mb-3">
+
+                <label for="ibu">Amargor (IBU)</label>
+                <input type="text" id="ibu" name="ibu" placeholder="Ex: 60" class="form-control border-secondary mb-3">
+            </section>
+
+            <div class="accordion mb-3" id="analise-cerveja">
+                <!-- aparencia -->
+                <section class="accordion-item border-secondary">
+                    <div class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#aparencia-cerveja">
+                            <h2 class="text-center">Aparência</h2>
+                        </button>
+
+                        <div class="accordion-collapse collapse px-3" data-bs-parent="#analise-cerveja"
+                            id="aparencia-cerveja">
+                            <!-- Limpidez -->
+                            <div>
+                                <h3>Geral</h3>
+                                <label for="limpidez">Limpidez</label>
+                                <select id="limpidez" name="limpidez" class="form-select border-secondary mb-3">
+                                    <option value="">Selecione</option>
+                                    <option>Inexistente</option>
+                                    <option>Baixo</option>
+                                    <option>Médio-baixo</option>
+                                    <option>Médio</option>
+                                    <option>Médio-alto</option>
+                                    <option>Alto</option>
+                                </select>
+
+                                <!-- Tamanho do colarinho -->
+                                <label for="colarinho-tamanho">Tamanho do colarinho</label>
+                                <select id="colarinho-tamanho" name="colarinhoTamanho"
+                                    class="form-select border-secondary mb-3">
+                                    <option value="">Selecione</option>
+                                    <option>Inexistente</option>
+                                    <option>Baixo</option>
+                                    <option>Médio-baixo</option>
+                                    <option>Médio</option>
+                                    <option>Médio-alto</option>
+                                    <option>Alto</option>
+                                </select>
+
+                                <!-- Retenção do colarinho -->
+                                <label for="colarinho-retencao">Estabilidade / Retenção do colarinho</label>
+                                <select id="colarinho-retencao" name="colarinhoRetencao"
+                                    class="form-select border-secondary mb-3">
+                                    <option value="">Selecione</option>
+                                    <option>Inexistente</option>
+                                    <option>Baixo</option>
+                                    <option>Médio-baixo</option>
+                                    <option>Médio</option>
+                                    <option>Médio-alto</option>
+                                    <option>Alto</option>
+                                </select>
+                            </div>
+
+                            <!-- cor da cerveja -->
+                            <div class="mt-3">
+                                <h3>Cor da cerveja</h3>
+
+                                <div class="d-flex flex-wrap justify-content-center">
+                                    <label class="color-option m-2">
+                                        <input type="radio" name="corCerveja" value="Palha">
+                                        <div class="color-box">
+                                            <div class="img-placeholder palha"></div>
+                                            <span>Palha</span>
+                                        </div>
+                                    </label>
+
+                                    <label class="color-option m-2">
+                                        <input type="radio" name="corCerveja" value="Amarelo">
+                                        <div class="color-box">
+                                            <div class="img-placeholder amarelo"></div>
+                                            <span>Amarelo</span>
+                                        </div>
+                                    </label>
+
+                                    <label class="color-option m-2">
+                                        <input type="radio" name="corCerveja" value="Dourado">
+                                        <div class="color-box">
+                                            <div class="img-placeholder dourado"></div>
+                                            <span>Dourado</span>
+                                        </div>
+                                    </label>
+
+                                    <label class="color-option m-2">
+                                        <input type="radio" name="corCerveja" value="Ambar">
+                                        <div class="color-box">
+                                            <div class="img-placeholder ambar"></div>
+                                            <span>Ambar</span>
+                                        </div>
+                                    </label>
+
+                                    <label class="color-option m-2">
+                                        <input type="radio" name="corCerveja" value="Cobre">
+                                        <div class="color-box">
+                                            <div class="img-placeholder cobre"></div>
+                                            <span>Cobre</span>
+                                        </div>
+                                    </label>
+
+                                    <label class="color-option m-2">
+                                        <input type="radio" name="corCerveja" value="Marrom">
+                                        <div class="color-box">
+                                            <div class="img-placeholder marrom"></div>
+                                            <span>Marrom</span>
+                                        </div>
+                                    </label>
+
+                                    <label class="color-option m-2">
+                                        <input type="radio" name="corCerveja" value="Preto">
+                                        <div class="color-box">
+                                            <div class="img-placeholder preto"></div>
+                                            <span>Preto</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- cor do colarinho -->
+                            <div class="mt-3">
+                                <h3>Cor do colarinho</h3>
+
+                                <div class="d-flex flex-wrap justify-content-center">
+                                    <label class="color-option m-2">
+                                        <input type="radio" name="corColarinho" value="Branco">
+                                        <div class="color-box">
+                                            <div class="color-preview branco"></div>
+                                            <span>Branco</span>
+                                        </div>
+                                    </label>
+
+                                    <label class="color-option m-2">
+                                        <input type="radio" name="corColarinho" value="Marfim">
+                                        <div class="color-box">
+                                            <div class="color-preview marfim"></div>
+                                            <span>Marfim</span>
+                                        </div>
+                                    </label>
+
+                                    <label class="color-option m-2">
+                                        <input type="radio" name="corColarinho" value="Creme">
+                                        <div class="color-box">
+                                            <div class="color-preview creme"></div>
+                                            <span>Creme</span>
+                                        </div>
+                                    </label>
+
+                                    <label class="color-option m-2">
+                                        <input type="radio" name="corColarinho" value="Bege">
+                                        <div class="color-box">
+                                            <div class="color-preview bege"></div>
+                                            <span>Bege</span>
+                                        </div>
+                                    </label>
+
+                                    <label class="color-option m-2">
+                                        <input type="radio" name="corColarinho" value="Moreno">
+                                        <div class="color-box">
+                                            <div class="color-preview moreno"></div>
+                                            <span>Moreno</span>
+                                        </div>
+                                    </label>
+
+                                    <label class="color-option m-2">
+                                        <input type="radio" name="corColarinho" value="Marrom">
+                                        <div class="color-box">
+                                            <div class="color-preview marrom"></div>
+                                            <span>Marrom</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- outras características -->
+                            <div class="mt-3">
+                                <h3>Outras características</h3>
+
+                                <div class="d-flex justify-content-center">
+                                    <input type="radio" name="outrasCaracteristicas" value="Flat"
+                                        class="btn-check color-option" id="flat">
+                                    <label class="btn btn-outline-dark m-2" for="flat">Flat</label>
+
+                                    <input type="radio" name="outrasCaracteristicas" value="Renda"
+                                        class="btn-check color-option" id="renda">
+                                    <label class="btn btn-outline-dark m-2" for="renda">Renda</label>
+
+                                    <input type="radio" name="outrasCaracteristicas" value="Lágrimas" class="btn-check"
+                                        id="lagrimas">
+                                    <label class="btn btn-outline-dark m-2" for="lagrimas">Lágrimas</label>
+
+                                    <input type="radio" name="outrasCaracteristicas" value="Opaco" class="btn-check"
+                                        id="opaco">
+                                    <label class="btn btn-outline-dark m-2" for="opaco">Opaco</label>
+                                </div>
+                            </div>
+
+                            <!-- Comentários -->
+                            <div class="mt-3">
+                                <h3>Comentários</h3>
+                                <textarea id="comentarios-aparencia" name="comentariosAparencia"
+                                    placeholder="Descreva observações adicionais sobre a aparência..."
+                                    class="form-control border-secondary mb-3"></textarea>
+                            </div>
+
+                            <!-- Nota -->
+                            <div class="mt-3">
+                                <h3>Nota (0 a 3)</h3>
+
+                                <div class="d-flex justify-content-center">
+                                    <input type="radio" name="notaAparencia" value="0" class="btn-check"
+                                        id="aparencia-0" checked>
+                                    <label for="aparencia-0" class="btn btn-outline-dark m-2">0</label>
+
+                                    <input type="radio" name="notaAparencia" value="1" class="btn-check"
+                                        id="aparencia-1">
+                                    <label for="aparencia-1" class="btn btn-outline-dark m-2">1</label>
+
+                                    <input type="radio" name="notaAparencia" value="2" class="btn-check"
+                                        id="aparencia-2">
+                                    <label for="aparencia-2" class="btn btn-outline-dark m-2">2</label>
+
+                                    <input type="radio" name="notaAparencia" value="3" class="btn-check"
+                                        id="aparencia-3">
+                                    <label for="aparencia-3" class="btn btn-outline-dark m-2">3</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- aroma -->
+                <section class="accordion-item border-secondary">
+                    <div class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#aroma-cerveja">
+                            <h2 class="text-center">Aroma</h2>
+                        </button>
+                    </div>
+
+                    <div class="accordion-collapse collapse px-3" data-bs-parent="#analise-cerveja" id="aroma-cerveja">
+                        <!-- aromas de malte -->
+                        <div class="mt-3">
+                            <h3>Aroma de Malte</h3>
+
+                            <div class="d-flex flex-wrap justify-content-center">
+                                <input type="checkbox" name="aromaMalte" value="Dulçor" class="btn-check color-option"
+                                    id="aromadulcor">
+                                <label class="btn btn-outline-dark m-2" for="aromadulcor">Dulçor maltado</label>
+
+                                <input type="checkbox" name="aromaMalte" value="Milho" class="btn-check color-option"
+                                    id="aromamilho">
+                                <label class="btn btn-outline-dark m-2" for="aromamilho">Milho</label>
+
+                                <input type="checkbox" name="aromaMalte" value="Trigo" class="btn-check"
+                                    id="aromatrigo">
+                                <label class="btn btn-outline-dark m-2" for="aromatrigo">Trigo</label>
+
+                                <input type="checkbox" name="aromaMalte" value="Mel" class="btn-check" id="aromamel">
+                                <label class="btn btn-outline-dark m-2" for="aromamel">Mel</label>
+
+                                <input type="checkbox" name="aromaMalte" value="Biscoito" class="btn-check"
+                                    id="aromabiscoito">
+                                <label class="btn btn-outline-dark m-2" for="aromabiscoito">Biscoito</label>
+
+                                <input type="checkbox" name="aromaMalte" value="Caramelo claro" class="btn-check"
+                                    id="aromacarameloclaro">
+                                <label class="btn btn-outline-dark m-2" for="aromacarameloclaro">Caramelo claro</label>
+
+                                <input type="checkbox" name="aromaMalte" value="Caramelo escuro" class="btn-check"
+                                    id="aromacarameloescuro">
+                                <label class="btn btn-outline-dark m-2" for="aromacarameloescuro">Caramelo
+                                    escuro</label>
+
+                                <input type="checkbox" name="aromaMalte" value="Toffee" class="btn-check"
+                                    id="aromatoffee">
+                                <label class="btn btn-outline-dark m-2" for="aromatoffee">Toffee</label>
+
+                                <input type="checkbox" name="aromaMalte" value="Baunilha" class="btn-check"
+                                    id="aromabaunilha">
+                                <label class="btn btn-outline-dark m-2" for="aromabaunilha">Baunilha</label>
+
+                                <input type="checkbox" name="aromaMalte" value="Uva passa" class="btn-check"
+                                    id="aromauvapassa">
+                                <label class="btn btn-outline-dark m-2" for="aromauvapassa">Uva passa</label>
+
+                                <input type="checkbox" name="aromaMalte" value="Amêndoa" class="btn-check"
+                                    id="aromaamendoa">
+                                <label class="btn btn-outline-dark m-2" for="aromaamendoa">Amêndoa</label>
+
+                                <input type="checkbox" name="aromaMalte" value="Avelã" class="btn-check"
+                                    id="aromaavela">
+                                <label class="btn btn-outline-dark m-2" for="aromaavela">Avelã</label>
+
+                                <input type="checkbox" name="aromaMalte" value="Pão" class="btn-check" id="aromapao">
+                                <label class="btn btn-outline-dark m-2" for="aromapao">Pão</label>
+
+                                <input type="checkbox" name="aromaMalte" value="Frutas secas" class="btn-check"
+                                    id="aromafrutassecas">
+                                <label class="btn btn-outline-dark m-2" for="aromafrutassecas">Frutas secas</label>
+
+                                <input type="checkbox" name="aromaMalte" value="Amêndoas torradas" class="btn-check"
+                                    id="aromaamendoastorradas">
+                                <label class="btn btn-outline-dark m-2" for="aromaamendoastorradas">Amêndoas
+                                    torradas</label>
+
+                                <input type="checkbox" name="aromaMalte" value="Chocolate" class="btn-check"
+                                    id="aromachocolate">
+                                <label class="btn btn-outline-dark m-2" for="aromachocolate">Chocolate</label>
+
+                                <input type="checkbox" name="aromaMalte" value="Café" class="btn-check" id="aromacafe">
+                                <label class="btn btn-outline-dark m-2" for="aromacafe">Café</label>
+                            </div>
+
+                            <label for="outrosaromasmalte">Outros aromas de malte:</label>
+                            <input type="text" name="outrosAromasMalte" placeholder="outros aromas de malte"
+                                class="form-control border-secondary border-top-0 border-start-0 border-end-0 rounded-0"
+                                id="outrosaromasmalte">
+                        </div>
+
+                        <!-- aromas de lúpulo -->
+                        <div class="mt-3">
+                            <h3>Aroma de Lúpulo</h3>
+
+                            <div class="d-flex flex-wrap justify-content-center">
+                                <input type="checkbox" name="aromaLupulo" value="Cítrico" class="btn-check color-option"
+                                    id="aromacitrico">
+                                <label class="btn btn-outline-dark m-2" for="aromacitrico">Cítrico</label>
+
+                                <input type="checkbox" name="aromaLupulo" value="Terroso" class="btn-check color-option"
+                                    id="aromaterroso">
+                                <label class="btn btn-outline-dark m-2" for="aromaterroso">Terroso</label>
+
+                                <input type="checkbox" name="aromaLupulo" value="Floral" class="btn-check"
+                                    id="aromafloral">
+                                <label class="btn btn-outline-dark m-2" for="aromafloral">Floral</label>
+
+                                <input type="checkbox" name="aromaLupulo" value="Gramíneo" class="btn-check"
+                                    id="aromagramineo">
+                                <label class="btn btn-outline-dark m-2" for="aromagramineo">Gramíneo</label>
+
+                                <input type="checkbox" name="aromaLupulo" value="Herbal" class="btn-check"
+                                    id="aromaherbal">
+                                <label class="btn btn-outline-dark m-2" for="aromaherbal">Herbal</label>
+
+                                <input type="checkbox" name="aromaLupulo" value="Pinho" class="btn-check"
+                                    id="aromapinho">
+                                <label class="btn btn-outline-dark m-2" for="aromapinho">Pinho</label>
+
+                                <input type="checkbox" name="aromaLupulo" value="Condimentado" class="btn-check"
+                                    id="aromacondimentado1">
+                                <label class="btn btn-outline-dark m-2" for="aromacondimentado1">Condimentado</label>
+
+                                <input type="checkbox" name="aromaLupulo" value="Madeira" class="btn-check"
+                                    id="aromamadeira">
+                                <label class="btn btn-outline-dark m-2" for="aromamadeira">Madeira</label>
+
+                                <input type="checkbox" name="aromaLupulo" value="Resinoso" class="btn-check"
+                                    id="aromaresinoso">
+                                <label class="btn btn-outline-dark m-2" for="aromaresinoso">Resinoso</label>
+                            </div>
+
+                            <label for="outrosaromaslupulo">Outros aromas de lúpulo:</label>
+                            <input type="text" name="outrosAromasLupulo" placeholder="outros aromas de lúpulo"
+                                class="form-control border-secondary border-top-0 border-start-0 border-end-0 rounded-0"
+                                id="outrosaromaslupulo">
+                        </div>
+
+                        <!-- aromas de fermentação -->
+                        <div class="mt-3">
+                            <h3>Aroma de Fermentação</h3>
+
+                            <div class="d-flex flex-wrap justify-content-center">
+                                <input type="checkbox" name="aromaFermentacao" value="Perfil limpo"
+                                    class="btn-check color-option" id="aromaperfillimpo">
+                                <label class="btn btn-outline-dark m-2" for="aromaperfillimpo">Perfil limpo</label>
+
+                                <input type="checkbox" name="aromaFermentacao" value="Esterfrutado"
+                                    class="btn-check color-option" id="aromaesterfrutado">
+                                <label class="btn btn-outline-dark m-2" for="aromaesterfrutado">Ésteres frutados
+                                    (banana)</label>
+
+                                <input type="checkbox" name="aromaFermentacao" value="Esterfenolico" class="btn-check"
+                                    id="aromaesterfenolico">
+                                <label class="btn btn-outline-dark m-2" for="aromaesterfenolico">Ésteres fenólicos
+                                    (cravo)</label>
+
+                                <input type="checkbox" name="aromaFermentacao" value="Láctico" class="btn-check"
+                                    id="aromalatico">
+                                <label class="btn btn-outline-dark m-2" for="aromalactico">Láctico</label>
+
+                                <input type="checkbox" name="aromaFermentacao" value="Acético" class="btn-check"
+                                    id="aromaacetico">
+                                <label class="btn btn-outline-dark m-2" for="aromaacetico">Acético (vinagre)</label>
+
+                                <input type="checkbox" name="aromaFermentacao" value="Pinho" class="btn-check"
+                                    id="aromapinho">
+                                <label class="btn btn-outline-dark m-2" for="aromapinho">Pinho</label>
+
+                                <input type="checkbox" name="aromaFermentacao" value="Condimentado" class="btn-check"
+                                    id="aromacondimentado2">
+                                <label class="btn btn-outline-dark m-2" for="aromacondimentado2">Condimentado</label>
+
+                                <input type="checkbox" name="aromaFermentacao" value="Brettanomyces" class="btn-check"
+                                    id="aromabrettanomyces">
+                                <label class="btn btn-outline-dark m-2" for="aromabrettanomyces">Brettanomyces</label>
+                            </div>
+
+                            <label for="outrosaromasfermentacao">Outros aromas de fermentação:</label>
+                            <input type="text" name="outrosAromasFermentacao" placeholder="outros aromas de fermentação"
+                                class="form-control border-secondary border-top-0 border-start-0 border-end-0 rounded-0"
+                                id="outrosaromasfermentacao">
+                        </div>
+
+                        <!-- Nota -->
+                        <div class="mt-3">
+                            <h3>Nota (0 a 12)</h3>
+
+                            <div class="d-flex flex-wrap justify-content-center">
+                                <input type="radio" name="notaAroma" value="0" class="btn-check" id="aroma-0" checked>
+                                <label for="aroma-0" class="btn btn-outline-dark m-2">0</label>
+
+                                <input type="radio" name="notaAroma" value="1" class="btn-check" id="aroma-1">
+                                <label for="aroma-1" class="btn btn-outline-dark m-2">1</label>
+
+                                <input type="radio" name="notaAroma" value="2" class="btn-check" id="aroma-2">
+                                <label for="aroma-2" class="btn btn-outline-dark m-2">2</label>
+
+                                <input type="radio" name="notaAroma" value="3" class="btn-check" id="aroma-3">
+                                <label for="aroma-3" class="btn btn-outline-dark m-2">3</label>
+
+                                <input type="radio" name="notaAroma" value="4" class="btn-check" id="aroma-4">
+                                <label for="aroma-4" class="btn btn-outline-dark m-2">4</label>
+
+                                <input type="radio" name="notaAroma" value="5" class="btn-check" id="aroma-5">
+                                <label for="aroma-5" class="btn btn-outline-dark m-2">5</label>
+
+                                <input type="radio" name="notaAroma" value="6" class="btn-check" id="aroma-6">
+                                <label for="aroma-6" class="btn btn-outline-dark m-2">6</label>
+
+                                <input type="radio" name="notaAroma" value="7" class="btn-check" id="aroma-7">
+                                <label for="aroma-7" class="btn btn-outline-dark m-2">7</label>
+
+                                <input type="radio" name="notaAroma" value="8" class="btn-check" id="aroma-8">
+                                <label for="aroma-8" class="btn btn-outline-dark m-2">8</label>
+
+                                <input type="radio" name="notaAroma" value="9" class="btn-check" id="aroma-9">
+                                <label for="aroma-9" class="btn btn-outline-dark m-2">9</label>
+
+                                <input type="radio" name="notaAroma" value="10" class="btn-check" id="aroma-10">
+                                <label for="aroma-10" class="btn btn-outline-dark m-2">10</label>
+
+                                <input type="radio" name="notaAroma" value="11" class="btn-check" id="aroma-11">
+                                <label for="aroma-11" class="btn btn-outline-dark m-2">11</label>
+
+                                <input type="radio" name="notaAroma" value="12" class="btn-check" id="aroma-12">
+                                <label for="aroma-12" class="btn btn-outline-dark m-2">12</label>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- sabor -->
+                <section class="accordion-item border-secondary">
+                    <div class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#sabor-cerveja">
+                            <h2 class="text-center mb-3">Sabor</h2>
+                        </button>
+                    </div>
+
+                    <div class="accordion-collapse collapse px-3" data-bs-parent="#analise-cerveja" id="sabor-cerveja">
+                        <!-- sabores de malte -->
+                        <div class="mt-3">
+                            <h3>Sabores de Malte</h3>
+
+                            <div class="d-flex flex-wrap justify-content-center">
+                                <input type="checkbox" name="saborMalte" value="Dulçor" class="btn-check color-option"
+                                    id="sabordulcor">
+                                <label class="btn btn-outline-dark m-2" for="sabordulcor">Dulçor maltado</label>
+
+                                <input type="checkbox" name="saborMalte" value="Milho" class="btn-check color-option"
+                                    id="sabormilho">
+                                <label class="btn btn-outline-dark m-2" for="sabormilho">Milho</label>
+
+                                <input type="checkbox" name="saborMalte" value="Trigo" class="btn-check"
+                                    id="sabortrigo">
+                                <label class="btn btn-outline-dark m-2" for="sabortrigo">Trigo</label>
+
+                                <input type="checkbox" name="saborMalte" value="Mel" class="btn-check" id="sabormel">
+                                <label class="btn btn-outline-dark m-2" for="sabormel">Mel</label>
+
+                                <input type="checkbox" name="saborMalte" value="Biscoito" class="btn-check"
+                                    id="saborbiscoito">
+                                <label class="btn btn-outline-dark m-2" for="saborbiscoito">Biscoito</label>
+
+                                <input type="checkbox" name="saborMalte" value="Caramelo claro" class="btn-check"
+                                    id="saborcarameloclaro">
+                                <label class="btn btn-outline-dark m-2" for="saborcarameloclaro">Caramelo claro</label>
+
+                                <input type="checkbox" name="saborMalte" value="Caramelo escuro" class="btn-check"
+                                    id="saborcarameloescuro">
+                                <label class="btn btn-outline-dark m-2" for="saborcarameloescuro">Caramelo
+                                    escuro</label>
+
+                                <input type="checkbox" name="saborMalte" value="Toffee" class="btn-check"
+                                    id="sabortoffee">
+                                <label class="btn btn-outline-dark m-2" for="sabortoffee">Toffee</label>
+
+                                <input type="checkbox" name="saborMalte" value="Baunilha" class="btn-check"
+                                    id="saborbaunilha">
+                                <label class="btn btn-outline-dark m-2" for="saborbaunilha">Baunilha</label>
+
+                                <input type="checkbox" name="saborMalte" value="Uva passa" class="btn-check"
+                                    id="saboruvapassa">
+                                <label class="btn btn-outline-dark m-2" for="saboruvapassa">Uva passa</label>
+
+                                <input type="checkbox" name="saborMalte" value="Amêndoa" class="btn-check"
+                                    id="saboramendoa">
+                                <label class="btn btn-outline-dark m-2" for="saboramendoa">Amêndoa</label>
+
+                                <input type="checkbox" name="saborMalte" value="Avelã" class="btn-check"
+                                    id="saboravela">
+                                <label class="btn btn-outline-dark m-2" for="saboravela">Avelã</label>
+
+                                <input type="checkbox" name="saborMalte" value="Pão" class="btn-check" id="saborpao">
+                                <label class="btn btn-outline-dark m-2" for="saborpao">Pão</label>
+
+                                <input type="checkbox" name="saborMalte" value="Frutas secas" class="btn-check"
+                                    id="saborfrutassecas">
+                                <label class="btn btn-outline-dark m-2" for="saborfrutassecas">Frutas secas</label>
+
+                                <input type="checkbox" name="saborMalte" value="Amêndoas torradas" class="btn-check"
+                                    id="saboramendoastorradas">
+                                <label class="btn btn-outline-dark m-2" for="saboramendoastorradas">Amêndoas
+                                    torradas</label>
+
+                                <input type="checkbox" name="saborMalte" value="Chocolate" class="btn-check"
+                                    id="saborchocolate">
+                                <label class="btn btn-outline-dark m-2" for="saborchocolate">Chocolate</label>
+
+                                <input type="checkbox" name="saborMalte" value="Café" class="btn-check" id="saborcafe">
+                                <label class="btn btn-outline-dark m-2" for="saborcafe">Café</label>
+                            </div>
+
+                            <label for="outrossaboresmalte">Outros sabores de malte</label>
+                            <input type="text" name="outrosSaboresMalte" placeholder="outros sabores de malte"
+                                class="form-control border-secondary border-top-0 border-start-0 border-end-0 rounded-0"
+                                id="outrossaboresmalte">
+                        </div>
+
+                        <!-- sabores de lúpulo -->
+                        <div class="mt-3">
+                            <h3>Sabores de Lúpulo</h3>
+
+                            <div class="d-flex flex-wrap justify-content-center">
+                                <input type="checkbox" name="saborLupulo" value="Cítrico" class="btn-check color-option"
+                                    id="saborcitrico">
+                                <label class="btn btn-outline-dark m-2" for="saborcitrico">Cítrico</label>
+
+                                <input type="checkbox" name="saborLupulo" value="Terroso" class="btn-check color-option"
+                                    id="saborterroso">
+                                <label class="btn btn-outline-dark m-2" for="saborterroso">Terroso</label>
+
+                                <input type="checkbox" name="saborLupulo" value="Floral" class="btn-check"
+                                    id="saborfloral">
+                                <label class="btn btn-outline-dark m-2" for="saborfloral">Floral</label>
+
+                                <input type="checkbox" name="saborLupulo" value="Gramíneo" class="btn-check"
+                                    id="saborgramineo">
+                                <label class="btn btn-outline-dark m-2" for="saborgramineo">Gramíneo</label>
+
+                                <input type="checkbox" name="saborLupulo" value="Herbal" class="btn-check"
+                                    id="saborherbal">
+                                <label class="btn btn-outline-dark m-2" for="saborherbal">Herbal</label>
+
+                                <input type="checkbox" name="saborLupulo" value="Pinho" class="btn-check"
+                                    id="saborpinho">
+                                <label class="btn btn-outline-dark m-2" for="saborpinho">Pinho</label>
+
+                                <input type="checkbox" name="saborLupulo" value="Condimentado" class="btn-check"
+                                    id="saborcondimentado1">
+                                <label class="btn btn-outline-dark m-2" for="saborcondimentado1">Condimentado</label>
+
+                                <input type="checkbox" name="saborLupulo" value="Madeira" class="btn-check"
+                                    id="sabormadeira">
+                                <label class="btn btn-outline-dark m-2" for="sabormadeira">Madeira</label>
+
+                                <input type="checkbox" name="saborLupulo" value="Resinoso" class="btn-check"
+                                    id="saborresinoso">
+                                <label class="btn btn-outline-dark m-2" for="saborresinoso">Resinoso</label>
+                            </div>
+
+                            <label for="outrossaboreslupulo">Outros sabores de lúpulo</label>
+                            <input type="text" name="outrosSaboresLupulo" placeholder="outros sabores de lúpulo"
+                                class="form-control border-secondary border-top-0 border-start-0 border-end-0 rounded-0"
+                                id="outrossaboreslupulo">
+                        </div>
+
+                        <!-- sabores de fermentação -->
+                        <div class="mt-3">
+                            <h3>Sabores de Fermentação</h3>
+
+                            <div class="d-flex flex-wrap justify-content-center">
+                                <input type="checkbox" name="saborFermentacao" value="Perfil limpo"
+                                    class="btn-check color-option" id="saborperfillimpo">
+                                <label class="btn btn-outline-dark m-2" for="saborperfillimpo">Perfil limpo</label>
+
+                                <input type="checkbox" name="saborFermentacao" value="Esterfrutado"
+                                    class="btn-check color-option" id="saboresterfrutado">
+                                <label class="btn btn-outline-dark m-2" for="saboresterfrutado">Ésteres frutados
+                                    (banana)</label>
+
+                                <input type="checkbox" name="saborFermentacao" value="Esterfenolico" class="btn-check"
+                                    id="saboresterfenolico">
+                                <label class="btn btn-outline-dark m-2" for="saboresterfenolico">Ésteres fenólicos
+                                    (cravo)</label>
+
+                                <input type="checkbox" name="aromaFermentacao" value="Condimentado" class="btn-check"
+                                    id="saborcondimentado2">
+                                <label class="btn btn-outline-dark m-2" for="saborcondimentado2">Condimentado</label>
+                            </div>
+
+                            <label for="outrossaboresfermentacao">Outros sabores de fermentação</label>
+                            <input type="text" name="outrosSaboresFermentacao"
+                                placeholder="outros sabores de fermentação"
+                                class="form-control border-secondary border-top-0 border-start-0 border-end-0 rounded-0"
+                                id="outrossaboresfermentacao">
+                        </div>
+
+                        <!-- Nota -->
+                        <div class="mt-3">
+                            <h3>Nota (0 a 20)</h3>
+
+                            <div class="d-flex flex-wrap justify-content-center">
+                                <input type="radio" name="notaSabor" value="0" class="btn-check" id="sabor-0" checked>
+                                <label for="sabor-0" class="btn btn-outline-dark m-2">0</label>
+
+                                <input type="radio" name="notaSabor" value="1" class="btn-check" id="sabor-1">
+                                <label for="sabor-1" class="btn btn-outline-dark m-2">1</label>
+
+                                <input type="radio" name="notaSabor" value="2" class="btn-check" id="sabor-2">
+                                <label for="sabor-2" class="btn btn-outline-dark m-2">2</label>
+
+                                <input type="radio" name="notaSabor" value="3" class="btn-check" id="sabor-3">
+                                <label for="sabor-3" class="btn btn-outline-dark m-2">3</label>
+
+                                <input type="radio" name="notaSabor" value="4" class="btn-check" id="sabor-4">
+                                <label for="sabor-4" class="btn btn-outline-dark m-2">4</label>
+
+                                <input type="radio" name="notaSabor" value="5" class="btn-check" id="sabor-5">
+                                <label for="sabor-5" class="btn btn-outline-dark m-2">5</label>
+
+                                <input type="radio" name="notaSabor" value="6" class="btn-check" id="sabor-6">
+                                <label for="sabor-6" class="btn btn-outline-dark m-2">6</label>
+
+                                <input type="radio" name="notaSabor" value="7" class="btn-check" id="sabor-7">
+                                <label for="sabor-7" class="btn btn-outline-dark m-2">7</label>
+
+                                <input type="radio" name="notaSabor" value="8" class="btn-check" id="sabor-8">
+                                <label for="sabor-8" class="btn btn-outline-dark m-2">8</label>
+
+                                <input type="radio" name="notaSabor" value="9" class="btn-check" id="sabor-9">
+                                <label for="sabor-9" class="btn btn-outline-dark m-2">9</label>
+
+                                <input type="radio" name="notaSabor" value="10" class="btn-check" id="sabor-10">
+                                <label for="sabor-10" class="btn btn-outline-dark m-2">10</label>
+
+                                <input type="radio" name="notaSabor" value="11" class="btn-check" id="sabor-11">
+                                <label for="sabor-11" class="btn btn-outline-dark m-2">11</label>
+
+                                <input type="radio" name="notaSabor" value="12" class="btn-check" id="sabor-12">
+                                <label for="sabor-12" class="btn btn-outline-dark m-2">12</label>
+
+                                <input type="radio" name="notaSabor" value="13" class="btn-check" id="sabor-13">
+                                <label for="sabor-13" class="btn btn-outline-dark m-2">13</label>
+
+                                <input type="radio" name="notaSabor" value="14" class="btn-check" id="sabor-14">
+                                <label for="sabor-14" class="btn btn-outline-dark m-2">14</label>
+
+                                <input type="radio" name="notaSabor" value="15" class="btn-check" id="sabor-15">
+                                <label for="sabor-15" class="btn btn-outline-dark m-2">15</label>
+
+                                <input type="radio" name="notaSabor" value="16" class="btn-check" id="sabor-16">
+                                <label for="sabor-16" class="btn btn-outline-dark m-2">16</label>
+
+                                <input type="radio" name="notaSabor" value="17" class="btn-check" id="sabor-17">
+                                <label for="sabor-17" class="btn btn-outline-dark m-2">17</label>
+
+                                <input type="radio" name="notaSabor" value="18" class="btn-check" id="sabor-18">
+                                <label for="sabor-18" class="btn btn-outline-dark m-2">18</label>
+
+                                <input type="radio" name="notaSabor" value="19" class="btn-check" id="sabor-19">
+                                <label for="sabor-19" class="btn btn-outline-dark m-2">19</label>
+
+                                <input type="radio" name="notaSabor" value="20" class="btn-check" id="sabor-20">
+                                <label for="sabor-20" class="btn btn-outline-dark m-2">20</label>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- sensação -->
+                <section class="accordion-item border-secondary">
+                    <div class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#sensacao-cerveja">
+                            <h2 class="text-center">Sensação na boca</h2>
+                        </button>
+                    </div>
+
+                    <div class="accordion-collapse collapse px-3" data-bs-parent="#analise-cerveja"
+                        id="sensacao-cerveja">
+                        <!-- sensação geral -->
+                        <div>
+                            <h3>Geral</h3>
+                            <!-- Corpo -->
+                            <label for="corpo">Corpo</label>
+                            <select id="corpo" name="Corpo" class="form-select border-secondary mb-3">
+                                <option value="">Selecione</option>
+                                <option>Inexistente</option>
+                                <option>Baixo</option>
+                                <option>Médio-baixo</option>
+                                <option>Médio</option>
+                                <option>Médio-alto</option>
+                                <option>Alto</option>
+                            </select>
+
+                            <!-- Carbonatação -->
+                            <label for="carbonatacao">Carbonatação</label>
+                            <select id="carbonatacao" name="carbonatacao" class="form-select border-secondary mb-3">
+                                <option value="">Selecione</option>
+                                <option>Inexistente</option>
+                                <option>Baixo</option>
+                                <option>Médio-baixo</option>
+                                <option>Médio</option>
+                                <option>Médio-alto</option>
+                                <option>Alto</option>
+                            </select>
+                        </div>
+
+                        <!-- retrogosto -->
+                        <div class="mt-3">
+                            <h3>Final/Retrogosto</h3>
+
+                            <div class="d-flex flex-wrap justify-content-center">
+                                <input type="checkbox" name="retrogosto" value="Maltado" class="btn-check color-option"
+                                    id="maltado">
+                                <label class="btn btn-outline-dark m-2" for="maltado">Maltado</label>
+
+                                <input type="checkbox" name="retrogosto" value="Lupulado" class="btn-check color-option"
+                                    id="lupulado">
+                                <label class="btn btn-outline-dark m-2" for="lupulado">Lupulado</label>
+
+                                <input type="checkbox" name="retrogosto" value="AmargorBaixo" class="btn-check"
+                                    id="amargorbaixo">
+                                <label class="btn btn-outline-dark m-2" for="amargorbaixo">Amargor baixo</label>
+
+                                <input type="checkbox" name="retrogosto" value="AmargorAlto" class="btn-check"
+                                    id="amargoralto">
+                                <label class="btn btn-outline-dark m-2" for="amargoralto">Amargor alto</label>
+
+                                <input type="checkbox" name="retrogosto" value="Doce" class="btn-check" id="doce">
+                                <label class="btn btn-outline-dark m-2" for="doce">Doce</label>
+
+                                <input type="checkbox" name="retrogosto" value="Seco" class="btn-check" id="seco">
+                                <label class="btn btn-outline-dark m-2" for="seco">Seco</label>
+
+                                <input type="checkbox" name="retrogosto" value="Frutado" class="btn-check" id="frutado">
+                                <label class="btn btn-outline-dark m-2" for="frutado">Frutado</label>
+
+                                <input type="checkbox" name="retrogosto" value="fenólico" class="btn-check"
+                                    id="fenolico">
+                                <label class="btn btn-outline-dark m-2" for="fenolico">Fenólico</label>
+
+                                <input type="checkbox" name="retrogosto" value="Ácido" class="btn-check" id="acido">
+                                <label class="btn btn-outline-dark m-2" for="acido">Ácido</label>
+                            </div>
+
+                            <label for="outrosretrogosto">Outras sensações</label>
+                            <input type="text" name="outrosRetrogosto" placeholder="outras sensações"
+                                class="form-control border-secondary border-top-0 border-start-0 border-end-0 rounded-0"
+                                id="outrosretrogosto">
+                        </div>
+
+                        <!-- Nota -->
+                        <div class="mt-3">
+                            <h3>Nota (0 a 5)</h3>
+
+                            <div class="d-flex flex-wrap justify-content-center">
+                                <input type="radio" name="notaRetrogosto" value="0" class="btn-check" id="retrogosto-0"
+                                    checked>
+                                <label for="retrogosto-0" class="btn btn-outline-dark m-2">0</label>
+
+                                <input type="radio" name="notaRetrogosto" value="1" class="btn-check" id="retrogosto-1">
+                                <label for="retrogosto-1" class="btn btn-outline-dark m-2">1</label>
+
+                                <input type="radio" name="notaRetrogosto" value="2" class="btn-check" id="retrogosto-2">
+                                <label for="retrogosto-2" class="btn btn-outline-dark m-2">2</label>
+
+                                <input type="radio" name="notaRetrogosto" value="3" class="btn-check" id="retrogosto-3">
+                                <label for="retrogosto-3" class="btn btn-outline-dark m-2">3</label>
+
+                                <input type="radio" name="notaRetrogosto" value="4" class="btn-check" id="retrogosto-4">
+                                <label for="retrogosto-4" class="btn btn-outline-dark m-2">4</label>
+
+                                <input type="radio" name="notaRetrogosto" value="5" class="btn-check" id="retrogosto-5">
+                                <label for="retrogosto-5" class="btn btn-outline-dark m-2">5</label>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- impressão -->
+                <section class="accordion-item border-secondary">
+                    <div class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#impressao-cerveja">
+                            <h2 class="text-center mb-3">Impressão geral</h2>
+                        </button>
+                    </div>
+
+                    <div class="accordion-collapse collapse px-3" data-bs-parent="#analise-cerveja"
+                        id="impressao-cerveja">
+                        <!-- méritos -->
+                        <div>
+                            <h3>Avaliação</h3>
+                            <!-- Precisão de estilo -->
+                            <label for="precisao">Precisão de estilo</label>
+                            <select id="precisao" name="Precisao" class="form-select border-secondary mb-3">
+                                <option value="">Selecione</option>
+                                <option>Baixo</option>
+                                <option>Médio-baixo</option>
+                                <option>Médio</option>
+                                <option>Médio-alto</option>
+                                <option>Alto</option>
+                            </select>
+
+                            <!-- Mérito técnico -->
+                            <label for="merito">Mérito técnico</label>
+                            <select id="merito" name="merito" class="form-select border-secondary mb-3">
+                                <option value="">Selecione</option>
+                                <option>Baixo</option>
+                                <option>Médio-baixo</option>
+                                <option>Médio</option>
+                                <option>Médio-alto</option>
+                                <option>Alto</option>
+                            </select>
+                        </div>
+
+                        <!-- drinkability -->
+                        <div class="mt-3">
+                            <h3>Drinkability</h3>
+
+                            <div class="d-flex flex-wrap justify-content-center">
+                                <input type="checkbox" name="drinkability" value="Beberia essa amostra"
+                                    class="btn-check color-option" id="beberiaamostra">
+                                <label class="btn btn-outline-dark m-2" for="beberiaamostra">Eu beberia esta amostra até
+                                    o
+                                    fim</label>
+
+                                <input type="checkbox" name="drinkability" value="Beberia um pint"
+                                    class="btn-check color-option" id="beberiapint">
+                                <label class="btn btn-outline-dark m-2" for="beberiapint">Eu beberia um pint dessa
+                                    cerveja</label>
+
+                                <input type="checkbox" name="drinkability" value="Pagaria pela cerveja"
+                                    class="btn-check" id="pagaria">
+                                <label class="btn btn-outline-dark m-2" for="pagaria">Eu pagaria por essa
+                                    cerveja</label>
+
+                                <input type="checkbox" name="drinkability" value="Mande receita" class="btn-check"
+                                    id="mandereceita">
+                                <label class="btn btn-outline-dark m-2" for="mandereceita">Por favor, me mande essa
+                                    receita</label>
+                            </div>
+                        </div>
+
+                        <!-- Nota -->
+                        <div class="mt-3">
+                            <h3>Nota (0 a 10)</h3>
+
+                            <div class="d-flex flex-wrap justify-content-center">
+                                <input type="radio" name="notaImpressao" value="0" class="btn-check" id="impressao-0"
+                                    checked>
+                                <label for="impressao-0" class="btn btn-outline-dark m-2">0</label>
+
+                                <input type="radio" name="notaImpressao" value="1" class="btn-check" id="impressao-1">
+                                <label for="impressao-1" class="btn btn-outline-dark m-2">1</label>
+
+                                <input type="radio" name="notaImpressao" value="2" class="btn-check" id="impressao-2">
+                                <label for="impressao-2" class="btn btn-outline-dark m-2">2</label>
+
+                                <input type="radio" name="notaImpressao" value="3" class="btn-check" id="impressao-3">
+                                <label for="impressao-3" class="btn btn-outline-dark m-2">3</label>
+
+                                <input type="radio" name="notaImpressao" value="4" class="btn-check" id="impressao-4">
+                                <label for="impressao-4" class="btn btn-outline-dark m-2">4</label>
+
+                                <input type="radio" name="notaImpressao" value="5" class="btn-check" id="impressao-5">
+                                <label for="impressao-5" class="btn btn-outline-dark m-2">5</label>
+
+                                <input type="radio" name="notaImpressao" value="6" class="btn-check" id="impressao-6">
+                                <label for="impressao-6" class="btn btn-outline-dark m-2">6</label>
+
+                                <input type="radio" name="notaImpressao" value="7" class="btn-check" id="impressao-7">
+                                <label for="impressao-7" class="btn btn-outline-dark m-2">7</label>
+
+                                <input type="radio" name="notaImpressao" value="8" class="btn-check" id="impressao-8">
+                                <label for="impressao-8" class="btn btn-outline-dark m-2">8</label>
+
+                                <input type="radio" name="notaImpressao" value="9" class="btn-check" id="impressao-9">
+                                <label for="impressao-9" class="btn btn-outline-dark m-2">9</label>
+
+                                <input type="radio" name="notaImpressao" value="10" class="btn-check" id="impressao-10">
+                                <label for="impressao-10" class="btn btn-outline-dark m-2">10</label>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- off-flavors -->
+                <section class="accordion-item border-secondary">
+                    <div class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#off-flavor-cerveja">
+                            <h2 class="text-center">Defeitos (off-flavors)</h2>
+                        </button>
+                    </div>
+
+                    <div class="accordion-collapse collapse px-3" data-bs-parent="#analise-cerveja"
+                        id="off-flavor-cerveja">
+                        <!-- off-flavors -->
+                        <div class="mt-3">
+                            <div class="d-flex flex-wrap justify-content-center">
+                                <input type="checkbox" name="off-flavor" value="Acetaldeido"
+                                    class="btn-check color-option" id="acetaldeido">
+                                <label class="btn btn-outline-dark m-2" for="acetaldeido">Acetaldeído (Aroma e sabor
+                                    como
+                                    de maçã-verde)</label>
+
+                                <input type="checkbox" name="off-flavor" value="Ácido/azedo"
+                                    class="btn-check color-option" id="acido/azedo">
+                                <label class="btn btn-outline-dark m-2" for="acido/azedo">Ácido / Azedo (Acidez como
+                                    vinagre (ácido acético)</label>
+
+                                <input type="checkbox" name="off-flavor" value="Adstringente" class="btn-check"
+                                    id="adstringente">
+                                <label class="btn btn-outline-dark m-2" for="adstringente">Adstringente (Sensação de
+                                    repuxamento e/ou secura)</label>
+
+                                <input type="checkbox" name="off-flavor" value="Alcoólico" class="btn-check"
+                                    id="alcoolico">
+                                <label class="btn btn-outline-dark m-2" for="alcoolico">Alcoólico (Aroma, sabor e efeito
+                                    de
+                                    calor do etanol)</label>
+
+                                <input type="checkbox" name="off-flavor" value="Diacetil" class="btn-check"
+                                    id="diacetil">
+                                <label class="btn btn-outline-dark m-2" for="diacetil">Diacetil (Aroma e sabor de
+                                    manteiga
+                                    artificial)</label>
+
+                                <input type="checkbox" name="off-flavor" value="DMS" class="btn-check" id="dms">
+                                <label class="btn btn-outline-dark m-2" for="dms">DMS (Aroma e sabor doce parecido com
+                                    milho cozido)</label>
+
+                                <input type="checkbox" name="off-flavor" value="Enxofre" class="btn-check" id="enxofre">
+                                <label class="btn btn-outline-dark m-2" for="enxofre">Enxofre (Aroma de ovo podre ou
+                                    fósforos queimando)</label>
+
+                                <input type="checkbox" name="off-flavor" value="Fenólico (plastico)" class="btn-check"
+                                    id="plastico">
+                                <label class="btn btn-outline-dark m-2" for="plastico">Fenólico (Aromas de plástico,
+                                    fita
+                                    adesiva ou remédio)</label>
+
+                                <input type="checkbox" name="off-flavor" value="Levedura" class="btn-check"
+                                    id="levedura">
+                                <label class="btn btn-outline-dark m-2" for="levedura">Levedura (Aroma ou sabor de pão,
+                                    enxofre ou levedura (autólise)</label>
+
+                                <input type="checkbox" name="off-flavor" value="Light Struck" class="btn-check"
+                                    id="lightstruck">
+                                <label class="btn btn-outline-dark m-2" for="lightstruck">Light Struck - Atingido por
+                                    luz
+                                    (Similar ao aroma de um gambá)</label>
+
+                                <input type="checkbox" name="off-flavor" value="Metálico" class="btn-check"
+                                    id="metalico">
+                                <label class="btn btn-outline-dark m-2" for="metalico">Metálico (Sabor de lata, moeda,
+                                    cobre, ferro ou sangue)</label>
+
+                                <input type="checkbox" name="off-flavor" value="Mofo" class="btn-check" id="mofo">
+                                <label class="btn btn-outline-dark m-2" for="mofo">Mofo (Aromas/sabores de ranço, mofo
+                                    ou
+                                    bolor)</label>
+
+                                <input type="checkbox" name="off-flavor" value="Oxidado" class="btn-check" id="oxidado">
+                                <label class="btn btn-outline-dark m-2" for="oxidado">Oxidado (Sabor e aroma como de
+                                    papelão ou Xerez)</label>
+
+                                <input type="checkbox" name="off-flavor" value="Solvente" class="btn-check"
+                                    id="solvente">
+                                <label class="btn btn-outline-dark m-2" for="solvente">Solvente (Similar a aromas de
+                                    acetona ou thinner)</label>
+
+                                <input type="checkbox" name="off-flavor" value="Vegetal" class="btn-check" id="vegetal">
+                                <label class="btn btn-outline-dark m-2" for="vegetal">Vegetal (Sabor de legumes cozidos,
+                                    enlatados ou apodrecidos)</label>
+                            </div>
+
+                            <label for="outrosoff-flavor">Outros defeitos</label>
+                            <input type="text" name="outrosOff-flavor" placeholder="outros defeitos"
+                                class="form-control border-secondary border-top-0 border-start-0 border-end-0 rounded-0"
+                                id="outrosoff-flavor">
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="text-center">
+                <a href="index.html" class="btn btn-danger fw-bold px-5 fs-5">Voltar</a>
+                <button type="submit" class="btn btn-warning fw-bold px-5 fs-5">Salvar</button>
+            </div>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
